@@ -40,6 +40,11 @@ def main():
             if asteroid.check_for_collision(player):
                 print("Game over!")
                 return False
+            
+            for shot in shots:
+                if asteroid.check_for_collision(shot):
+                    asteroid.split()
+                    shot.kill()
 
         screen.fill("black")
         for item in drawable:
